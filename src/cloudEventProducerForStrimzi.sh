@@ -35,7 +35,7 @@ for ((i=0; i<$FILE_DUPLICATION_FACTOR; i++)); do
     echo -e "file is $file\n"
       # Replace the new line characters with a space and write to kafka
       sed ':a;N;$!ba;s/\n/ /g' "$file" | \
-        kafka-console-producer --broker-list oran-strimzi-kafka-bootstrap.smo:9092 --topic "$KAFKA_TOPIC" \
+        kafka-console-producer --broker-list oran-strimzi-kafka-bootstrap:9092 --topic "$KAFKA_TOPIC" \
         --property parse.headers=true --property headers.key.separator=::: --property headers.delimiter=,,, --property parse.key=false
     fi
   done
