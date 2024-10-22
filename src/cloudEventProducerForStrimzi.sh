@@ -23,7 +23,7 @@ KAFKA_NAMESPACE="${1:-teiv}"
 KAFKA_TOPIC="${2:-topology-inventory-ingestion}"
 KAFKA_POD_NAME="${3:-kafka-0}"
 FILE_DUPLICATION_FACTOR="${4:-1}" # How many times to use the same CloudEvent file
-FOLDER_OF_CLOUDEVENTS="${5:-/events}" # All files in this folder are written to kafka
+FOLDER_OF_CLOUDEVENTS="${5:-events}" # All files in this folder are written to kafka
 # number of generated files == number of files in the $FOLDER_OF_CLOUDEVENTS * $FILE_DUPLICATION_FACTOR
 
 echo "Producing messages to Kafka topic '$KAFKA_TOPIC'..."
