@@ -32,6 +32,7 @@ echo "Producing messages to Kafka topic '$KAFKA_TOPIC'..."
 for ((i=0; i<$FILE_DUPLICATION_FACTOR; i++)); do
   for file in "$FOLDER_OF_CLOUDEVENTS"/*; do
     if [ -f "$file" ]; then
+    echo -e "file is $file\n"
       # Replace the new line characters with a space and write to kafka
       sed ':a;N;$!ba;s/\n/ /g' "$file" | \
         kafka-console-producer --broker-list oran-strimzi-kafka-bootstrap.smo:9092 --topic "$KAFKA_TOPIC" \
